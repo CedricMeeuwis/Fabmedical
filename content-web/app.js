@@ -3,7 +3,9 @@ const http = require('http');
 const path = require('path');
 const request = require('request');
 
-const app = express();
+const appInsights = require("applicationinsights");
+appInsights.setup("5f18a4fc-87f6-4fb8-bfc0-7fc650af8e0b");
+appInsights.start();
 
 app.use(express.static(path.join(__dirname, 'dist/content-web')));
 const contentApiUrl = process.env.CONTENT_API_URL || "http://52.166.122.99:3001";
